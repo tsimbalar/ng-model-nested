@@ -1,0 +1,25 @@
+<div [style.backgroundColor]="'#F0F0F0'">
+  <h1>CARD</h1>
+  <div *ngFor="let widgetItem of widgetItems">
+    <div [ngSwitch]="widgetItem.widget.type">
+      <app-checkbox-group
+        *ngSwitchCase="'checkbox'"
+        [definition]="widgetItem.widget"
+        [ngModel]="widgetItem.answer"
+        (ngModelChange)="widgetItem.answer = $event; onWidgetChange()"
+      ></app-checkbox-group>
+      <app-custom-textarea
+        *ngSwitchCase="'textarea'"
+        [definition]="widgetItem.widget"
+        [ngModel]="widgetItem.answer"
+        (ngModelChange)="widgetItem.answer = $event; onWidgetChange()"
+      ></app-custom-textarea>
+    </div>
+  </div>
+</div>
+<pre>
+(internal state of card)
+{{ widgetItems | json }}
+</pre>
+<hr />
+<button (click)="removeLastWidget()">Remove last widget (dynamic card)</button>

@@ -1,14 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { CheckboxGroupComponent } from './checkbox-group/checkbox-group.component';
+import { CustomTextareaComponent } from './custom-textarea/custom-textarea.component';
+import { DynamicCardComponent } from './dynamic-card/dynamic-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CheckboxGroupComponent,
+    CustomTextareaComponent,
+    DynamicCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

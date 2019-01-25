@@ -1,0 +1,19 @@
+<pre [style.float]="'right'" [style.backgroundColor]="'white'">
+(internal state of CheckboxGroup {{definition.id}} )
+----------------------------------------
+{{checkboxes | json}}
+</pre>
+<h3>CheckboxGroup {{definition.id}}</h3>
+<ul>
+  <li *ngFor="let item of checkboxes; let i = index">
+    <input
+      type="checkbox"
+      id="{{ definition.id }}-{{ i }}"
+      [ngModel]="item.isChecked"
+      (ngModelChange)="item.isChecked = $event; onCheckboxChange()"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <label for="{{ definition.id }}-{{ i }}"> {{ item.option }}</label>
+  </li>
+</ul>
+
