@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  CardAnswer,
-  WidgetType,
-  CardDefinition
-} from './models';
+import { CardAnswer, WidgetType, CardDefinition } from './models';
 
 @Component({
   selector: 'app-root',
@@ -22,17 +18,18 @@ export class AppComponent {
       },
       {
         type: 'textarea',
-        id: 'textarea1',
+        id: 'textarea1'
       },
       {
         type: 'checkbox',
         id: 'checkbox2',
-        options: ['Foo', 'Bar', 'Qux']
+        options: ['Foo', 'Bar', 'Qux'],
+        maxSelection: 1
       },
       {
         type: 'textarea',
-        id: 'textarea2',
-      },
+        id: 'textarea2'
+      }
     ]
   };
 
@@ -56,6 +53,10 @@ export class AppComponent {
       widgetId: 'textarea2',
       widgetType: WidgetType.Textarea,
       value: ['content of textarea2']
-    },
+    }
   ];
+
+  public readonly initialAnswers: CardAnswer[] = JSON.parse(
+    JSON.stringify(this.cardAnswers)
+  );
 }

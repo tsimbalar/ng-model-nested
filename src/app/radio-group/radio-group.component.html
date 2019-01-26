@@ -1,0 +1,22 @@
+<pre [style.float]="'right'" [style.backgroundColor]="'white'">
+    (internal state of RadioGroup {{ definition.id }} )
+    ----------------------------------------
+    {{ selected | json }}
+    </pre
+>
+<h3>RadioGroup {{ definition.id }}</h3>
+<ul>
+  <li *ngFor="let item of definition.options; let i = index">
+    <label
+      ><input
+        type="radio"
+        id="{{ definition.id }}-{{ i }}"
+        [ngModel]="selected"
+        (ngModelChange)="selected = $event; onRadioChange()"
+        name="{{ definition.id }}"
+        value="{{ item }}"
+      />
+      {{ item }}
+    </label>
+  </li>
+</ul>

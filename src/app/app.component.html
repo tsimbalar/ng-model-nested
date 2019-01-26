@@ -1,20 +1,23 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <app-dynamic-card [card]="card" [(ngModel)]="cardAnswers"></app-dynamic-card>
 <hr />
 <table>
   <thead>
-      <tr>
-          <th colspan="2">TOP LEVEL</th>
-        </tr>
+    <tr>
+      <th colspan="3">TOP LEVEL</th>
+    </tr>
     <tr>
       <th>Card Definition</th>
-      <th>Answers</th>
+      <th>Initial Answers</th>
+      <th>Current Answers</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
         <pre>{{ card | json }}</pre>
+      </td>
+      <td>
+        <pre>{{ initialAnswers | json }}</pre>
       </td>
       <td>
         <pre>{{ cardAnswers | json }}</pre>

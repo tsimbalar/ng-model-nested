@@ -81,10 +81,6 @@ export class DynamicCardComponent
   }
   // end of ControlValueAccesor implementation
 
-  public removeLastWidget() {
-    this.value.splice(-1, 1);
-  }
-
   public onWidgetChange() {
     this.value = this.widgetItems.map(item => ({
       widgetId: item.widget.id,

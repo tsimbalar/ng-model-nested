@@ -16,6 +16,7 @@ export type Widget = CheckboxGroup | CustomTextarea;
 
 export interface CheckboxGroup {
   type: 'checkbox';
+  maxSelection?: number;
   id: string;
   options: string[];
 }

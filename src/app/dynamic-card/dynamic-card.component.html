@@ -2,12 +2,21 @@
   <h1>CARD</h1>
   <div *ngFor="let widgetItem of widgetItems">
     <div [ngSwitch]="widgetItem.widget.type">
-      <app-checkbox-group
-        *ngSwitchCase="'checkbox'"
-        [definition]="widgetItem.widget"
-        [ngModel]="widgetItem.answer"
-        (ngModelChange)="widgetItem.answer = $event; onWidgetChange()"
-      ></app-checkbox-group>
+      <ng-container *ngSwitchCase="'checkbox'">
+        <app-checkbox-group
+          *ngIf="widgetItem.widget.maxSelection !== 1; else radio_group"
+          [definition]="widgetItem.widget"
+          [ngModel]="widgetItem.answer"
+          (ngModelChange)="widgetItem.answer = $event; onWidgetChange()"
+        ></app-checkbox-group>
+        <ng-template #radio_group>
+          <app-radio-group
+            [definition]="widgetItem.widget"
+            [ngModel]="widgetItem.answer"
+            (ngModelChange)="widgetItem.answer = $event; onWidgetChange()"
+          ></app-radio-group>
+        </ng-template>
+      </ng-container>
       <app-custom-textarea
         *ngSwitchCase="'textarea'"
         [definition]="widgetItem.widget"
@@ -21,5 +30,4 @@
 (internal state of card)
 {{ widgetItems | json }}
 </pre>
-<hr />
-<button (click)="removeLastWidget()">Remove last widget (dynamic card)</button>
+
